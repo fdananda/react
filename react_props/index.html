@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<title></title>
+</head>
+<body>
+	<h1>React Props</h1>
+	<p><strong>Props</strong> são argumentos passados para componentes React.
+	<p>Exemplos: <br>
+		<div id="exemplo1"></div>
+		<div id="exemplo2"></div>
+
+		<div>
+	
+<pre>
+    &lt;script type="text/babel">
+        var local1 = document.getElementById("exemplo1")
+        var local2 = document.getElementById("exemplo2")
+
+        //Class Component
+        class Pessoa1 extends React.Component{
+            render(){
+                return &lt;p>Nome: {this.props.nome} &lt;/p>
+            }
+        }
+
+        //Function Component
+        function Pessoa2(props){
+                return &lt;p>Nome: {props.nome} &lt;/p>
+        }
+
+        ReactDOM.render(&lt;Pessoa1 nome="Fernanda"/>, local1)
+        ReactDOM.render(&lt;Pessoa2 nome="Helena"/>, local2)
+    &lt;/script>
+</pre>
+		</div>
+	<p class="referencia">Referência: <a href="https://www.w3schools.com/react/react_props.asp" target="_blank">www.w3schools</a></p>
+	<script type="text/babel">
+        var local1 = document.getElementById("exemplo1")
+        var local2 = document.getElementById("exemplo2")
+
+        //Class Component
+        class Pessoa1 extends React.Component{
+        	render(){
+        		return <p>Nome: {this.props.nome} </p>
+        	}
+        }
+
+        //Function Component
+        function Pessoa2(props){
+        		return <p>Nome: {props.nome} </p>
+        }
+
+        ReactDOM.render(<Pessoa1 nome="Fernanda"/>, local1)
+        ReactDOM.render(<Pessoa2 nome="Helena"/>, local2)
+    </script>
+</body>
+</html>
