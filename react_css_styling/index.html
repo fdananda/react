@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<title></title>
+</head>
+<body>
+	<h1>React CSS Styling</h1>
+	<p>Existem muitas maneiras de estilizar o React com CSS, dentre elas: Estilo embutido / folhas de estilo CSS / Módulos CSS. Em relação ao CSS convencional, as propriedades com separadores de hífen (ex.: background-color) devem ser escritas com a sintaxe camel case (backgroundColor).
+	<p>Exemplos: <br>
+		<div id="exemplo"></div>
+		<div>
+	
+<pre>
+    &lt;script type="text/babel">
+       var local = document.getElementById("exemplo")
+
+        //Class Component
+        class Pessoa extends React.Component{
+
+            render(){
+
+             var exemploStyle = {
+               color: "black",
+               fontFamily: "Arial",
+               backgroundColor: this.props.bgcolor,
+               padding: 5
+            }
+
+                return &lt;p style={exemploStyle}>Nome: {this.props.children} </p>
+            }
+        }
+
+        ReactDOM.render(
+        &lt;div>
+            &lt;Pessoa bgcolor="#58B3FF">Fernanda&lt;/Pessoa>
+            &lt;Pessoa bgcolor="#FF605F">Helena&lt;/Pessoa>
+            &lt;Pessoa bgcolor="#FFD52E">Rodrigues&lt;/Pessoa>
+            &lt;Pessoa bgcolor="#AE99FF">Moreira&lt;/Pessoa>
+        &lt;/div>
+        , local)
+    &lt;/script>
+</pre>
+		</div>
+	<p class="referencia">Referência: <a href="https://www.w3schools.com/react/react_css_styling.asp" target="_blank">www.w3schools</a></p>
+	<script type="text/babel">
+        var local = document.getElementById("exemplo")
+
+        //Class Component
+        class Pessoa extends React.Component{
+
+        	render(){
+
+             var exemploStyle = {
+               color: "black",
+               fontFamily: "Arial",
+               backgroundColor: this.props.bgcolor,
+               padding: 5
+            }
+
+        		return <p style={exemploStyle}>Nome: {this.props.children} </p>
+        	}
+        }
+
+        ReactDOM.render(
+        <div>
+            <Pessoa bgcolor="#58B3FF">Fernanda</Pessoa>
+            <Pessoa bgcolor="#FF605F">Helena</Pessoa>
+            <Pessoa bgcolor="#FFD52E">Rodrigues</Pessoa>
+            <Pessoa bgcolor="#AE99FF">Moreira</Pessoa>
+        </div>
+        , local)
+    
+    </script>
+</body>
+</html>
