@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<title></title>
+</head>
+<body>
+	<h1>React props.children</h1>
+	<p><strong>props.children</strong> são usados para adicionar dados entre as tags JSX de abertura e fechamento .
+	<p>Exemplos: <br>
+		<div id="exemplo1"></div>
+		<div id="exemplo2"></div>
+
+		<div>
+	
+<pre>
+    &lt;script type="text/babel">
+        var local1 = document.getElementById("exemplo1")
+        var local2 = document.getElementById("exemplo2")
+
+        //Class Component
+        class Pessoa1 extends React.Component{
+            render(){
+                return &lt;p>Nome: {this.props.children} &lt;/p>
+            }
+        }
+
+        //Function Component
+        function Pessoa2(props){
+                return &lt;p>Nome: {props.children} &lt;/p>
+        }
+
+        ReactDOM.render(&lt;Pessoa1>Fernanda&lt;/Pessoa1>, local1)
+        ReactDOM.render(&lt;Pessoa2>Helena&lt;/Pessoa2>, local2)
+    &lt;/script>
+</pre>
+		</div>
+	<p class="referencia">Referência: <a href="https://reactgo.com/react-props-children/#:~:text=In%20reactjs%20props.children%20is%20used%20to%20add%20the,href%20%3D%22%23%22%3E%20Contact%20%3C%2F%20a%20%3E%20%3C%2Fnav%3E%20%3C%2FSidebar%3E" target="_blank">Reactgo</a></p>
+	<script type="text/babel">
+        var local1 = document.getElementById("exemplo1")
+        var local2 = document.getElementById("exemplo2")
+
+        //Class Component
+        class Pessoa1 extends React.Component{
+        	render(){
+        		return <p>Nome: {this.props.children} </p>
+        	}
+        }
+
+        //Function Component
+        function Pessoa2(props){
+        		return <p>Nome: {props.children} </p>
+        }
+
+        ReactDOM.render(<Pessoa1>Fernanda</Pessoa1>, local1)
+        ReactDOM.render(<Pessoa2>Helena</Pessoa2>, local2)
+    </script>
+</body>
+</html>
