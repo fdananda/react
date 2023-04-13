@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<title></title>
+</head>
+<body>
+	<h1>React Spread Operator</h1>
+	<p>O <strong>Spread Operator ( ...)</strong> permite copiar rapidamente todo ou parte de um array ou objeto existente para outro array ou objeto.</p>
+
+	<p>Exemplo adaptado do capítulo 6 do livro Learning React, de Kirupa Chinnathambi:
+		<div id="exemplo"></div>
+
+		<div>
+	
+<pre>
+    &lt;script type="text/babel">
+                class TextoExibicao extends React.Component{
+            render(){
+                return(
+                    &lt;div>
+                        &lt;strong>Nome:&lt;/strong> {this.props.nome}&lt;br/>
+                        &lt;strong>Sobrenome:&lt;/strong> {this.props.sobrenome}&lt;br/>
+                        &lt;strong>Idade:&lt;/strong> {this.props.idade}&lt;br/>
+                    &lt;/div>
+                );
+            }
+        }
+
+        class Etiqueta extends React.Component{
+            render(){
+                return(
+                    <&lt;TextoExibicao {...this.props} />
+                );
+            }
+        }
+
+        class Pessoa extends React.Component{
+            render(){
+                return(
+                    &lt;div>
+                     &lt;Etiqueta {...this.props} />
+                    &lt;/div>
+                );
+            }
+        }
+
+         const local = document.getElementById("exemplo")
+         
+         ReactDOM.render(
+            &lt;div>
+                &lt;Pessoa nome="Fernanda" sobrenome="Moreira" idade="47" />
+            &lt;/div>, local
+            )
+                
+    &lt;/script>
+</pre>
+		</div>
+	<p class="referencia">Referência: <a href="https://www.w3schools.com/react/react_es6_spread.asp" target="_blank">www.w3schools</a></p>
+	<script type="text/babel">    
+        class TextoExibicao extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <strong>Nome:</strong> {this.props.nome}<br/>
+                        <strong>Sobrenome:</strong> {this.props.sobrenome}<br/>
+                        <strong>Idade:</strong> {this.props.idade}<br/>
+                    </div>
+                );
+            }
+        }
+
+        class Etiqueta extends React.Component{
+            render(){
+                return(
+                    <TextoExibicao {...this.props} />
+                );
+            }
+        }
+
+        class Pessoa extends React.Component{
+            render(){
+                return(
+                    <div>
+                     <Etiqueta {...this.props} />
+                    </div>
+                );
+            }
+        }
+
+         const local = document.getElementById("exemplo")
+         
+         ReactDOM.render(
+            <div>
+                <Pessoa nome="Fernanda" sobrenome="Moreira" idade="47" />
+            </div>, local
+            )
+                
+    </script>
+</body>
+</html>
