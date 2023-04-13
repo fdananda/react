@@ -5,3 +5,4 @@ Códigos React
 <li><b>React Props</b> - (11/04/2023) São argumentos passados para componentes React.<br>https://github.com/fdananda/react/tree/main/react_props</li>
 <li><b>React props.children</b> - (11/04/2023) São usados para adicionar dados entre as tags JSX de abertura e fechamento. <br>https://github.com/fdananda/react/tree/main/react_props_children</li>
 <li><b>React CSS Styling</b> - (11/04/2023) Existem muitas maneiras de estilizar o React com CSS.<br>https://github.com/fdananda/react/tree/main/react_css_styling</li>
+<li><b>React Component Composability</b> - (13/04/2023) O React permite nos referir a componentes dentro de outros componentes.<br>https://github.com/fdananda/react/tree/main/react_component_composability</li>
