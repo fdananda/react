@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<title></title>
+</head>
+<body>
+	<h1>React Component Composability</h1>
+	<p>O React permite nos referir a componentes dentro de outros componentes.</p>
+
+    <form name="formulario">
+        <input type="radio" id="corFF6663" name="cor" value="#FF6663" checked="true">
+        <label for="corFF6663"> #FF6663</label><br>
+        <input type="radio" id="corFFA737" name="cor" value="#FFA737">
+        <label for="corFFA737"> #FFA737</label><br>
+        <input type="radio" id="corFFF" name="cor" value="#000">
+        <label for="corFFF"> #000</label><br>
+        <input type="radio" id="corCCC" name="cor" value="#CCC">
+        <label for="corCCC"> #CCC</label><br>
+    </form>
+
+	<p>Exemplo adaptado do capítulo 5 do livro Learning React, de Kirupa Chinnathambi:
+		<div id="exemplo"></div>
+
+		<div>
+	
+<pre>
+    &lt;script type="text/babel">
+        class Quadrado extends React.Component{
+            render(){
+
+                const estiloQuadrado = {
+                    height: 150,
+                    backgroundColor: this.props.color,
+                }
+
+                return(
+                    &lt;div style={estiloQuadrado}>&lt;/div>
+                );
+            }
+        }
+
+        class Etiqueta extends React.Component{
+            render(){
+
+                const estiloEtiqueta = {
+                    fontFamily: "sans-serif",
+                    fontWeight: "bold",
+                    padding: 13,
+                    margin: 0
+                }
+
+                return(
+                    &lt;p style={estiloEtiqueta}>{this.props.color}&lt;/p>
+                );
+            }
+        }
+
+        class Cartao extends React.Component{
+            render(){
+
+                const estiloCartao = {
+                    height: 200,
+                    width: 150,
+                    padding: 0,
+                    backgroundColor: "#FFF",
+                    boxShadow: "0px 0px 5px #666"
+                }
+
+                return(
+                    &lt;div style={estiloCartao}>
+                        &lt;Quadrado color={this.props.color}/>
+                        &lt;Etiqueta color={this.props.color}/>
+                    &lt;/div>
+                );
+            }
+        }
+
+        var cor1 = document.getElementById("corFF6663")
+        var cor = cor1.value
+        var cor2 = document.getElementById("corFFA737")
+        var cor3 = document.getElementById("corFFF")
+        var cor4 = document.getElementById("corCCC")
+
+        handleChange()
+
+        cor1.onclick = (e) => {
+            if(cor1.checked){
+                cor = cor1.value
+                handleChange()
+            }
+        }
+
+        cor2.onclick = (e) => {
+            if(cor2.checked){
+                cor = cor2.value
+                handleChange()
+            }
+        }
+
+        cor3.onclick = (e) => {
+            if(cor3.checked){
+                cor = cor3.value
+                handleChange()
+            }
+        }
+
+        cor4.onclick = (e) => {
+            if(cor4.checked){
+                cor = cor4.value
+                handleChange()
+            }
+        }
+
+        function handleChange() {
+         const local = document.getElementById("exemplo")
+         
+         ReactDOM.render(
+            &lt;div>
+                &lt;Cartao color={cor} />
+            &lt;/div>, local
+            )
+        }        
+    &lt;/script>
+</pre>
+		</div>
+	<p class="referencia">Referência: <a href="https://www.w3schools.com/react/react_components.asp" target="_blank">www.w3schools</a></p>
+	<script type="text/babel">    
+        class Quadrado extends React.Component{
+            render(){
+
+                const estiloQuadrado = {
+                    height: 150,
+                    backgroundColor: this.props.color,
+                }
+
+                return(
+                    <div style={estiloQuadrado}></div>
+                );
+            }
+        }
+
+        class Etiqueta extends React.Component{
+            render(){
+
+                const estiloEtiqueta = {
+                    fontFamily: "sans-serif",
+                    fontWeight: "bold",
+                    padding: 13,
+                    margin: 0
+                }
+
+                return(
+                    <p style={estiloEtiqueta}>{this.props.color}</p>
+                );
+            }
+        }
+
+        class Cartao extends React.Component{
+            render(){
+
+                const estiloCartao = {
+                    height: 200,
+                    width: 150,
+                    padding: 0,
+                    backgroundColor: "#FFF",
+                    boxShadow: "0px 0px 5px #666"
+                }
+
+                return(
+                    <div style={estiloCartao}>
+                        <Quadrado color={this.props.color}/>
+                        <Etiqueta color={this.props.color}/>
+                    </div>
+                );
+            }
+        }
+
+        var cor1 = document.getElementById("corFF6663")
+        var cor = cor1.value
+        var cor2 = document.getElementById("corFFA737")
+        var cor3 = document.getElementById("corFFF")
+        var cor4 = document.getElementById("corCCC")
+
+        handleChange()
+
+        cor1.onclick = (e) => {
+            if(cor1.checked){
+                cor = cor1.value
+                handleChange()
+            }
+        }
+
+        cor2.onclick = (e) => {
+            if(cor2.checked){
+                cor = cor2.value
+                handleChange()
+            }
+        }
+
+        cor3.onclick = (e) => {
+            if(cor3.checked){
+                cor = cor3.value
+                handleChange()
+            }
+        }
+
+        cor4.onclick = (e) => {
+            if(cor4.checked){
+                cor = cor4.value
+                handleChange()
+            }
+        }
+
+        function handleChange() {
+         const local = document.getElementById("exemplo")
+         
+         ReactDOM.render(
+            <div>
+                <Cartao color={cor} />
+            </div>, local
+            )
+        }        
+    </script>
+</body>
+</html>
