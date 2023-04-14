@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<title></title>
+</head>
+<body>
+	<h1>React Fragment</h1>
+	<p>O <strong>React Fragment</strong>, que também pode ser utilizado via &lt;>...&lt;/>, permite agrupar elementos sem um nó. Opcionalmente, pode-se utilizar "key" com o Fragment explicitando os dados.</p>
+		<div id="exemplo"></div>
+
+		<div>
+	
+<pre>
+    &lt;script type="text/babel">
+          class TextoExibicao extends React.Component{
+            render(){
+                return(
+                    &lt;React.Fragment>
+                        &lt;strong>Nome:&lt;/strong> {this.props.nome}&lt;br/>
+                        &lt;strong>Sobrenome:&lt;/strong> {this.props.sobrenome}&lt;br/>
+                        &lt;strong>Idade:&lt;/strong> {this.props.idade}&lt;p/>
+
+                        &lt;>
+                        &lt;strong>Nome:&lt;/strong> {this.props.nome}&lt;br/>
+                        &lt;strong>Sobrenome:&lt;/strong> {this.props.sobrenome}&lt;br/>
+                        &lt;strong>Idade:&lt;/strong> {this.props.idade}&lt;br/>
+                        &lt;/>
+
+                        &lt;p key={this.props.nome}>&lt;strong>Nome:&lt;/strong> {this.props.nome}&lt;/p>
+                        &lt;p key={this.props.sobrenome}>&lt;strong>Sobrenome:&lt;/strong> {this.props.sobrenome}&lt;/p>
+                        &lt;p key={this.props.idade}>&lt;strong>Idade:&lt;/strong> {this.props.idade}&lt;/p>
+
+                    &lt;/React.Fragment>
+                );
+            }
+        }
+
+        class Pessoa extends React.Component{
+            render(){
+                return(
+                    &lt;div>
+                     &lt;TextoExibicao {...this.props} />
+                    &lt;/div>
+                );
+            }
+        }
+
+         const local = document.getElementById("exemplo")
+         
+         ReactDOM.render(
+            &lt;div>
+                &lt;Pessoa nome="Fernanda" sobrenome="Moreira" idade="45" />
+            &lt;/div>, local
+            )  
+    &lt;/script>
+</pre>
+		</div>
+	<p class="referencia">Referência: <a href="https://react.dev/reference/react/Fragment" target="_blank">React</a></p>
+	<script type="text/babel">    
+        class TextoExibicao extends React.Component{
+            render(){
+                return(
+                    <React.Fragment>
+                        <strong>Nome:</strong> {this.props.nome}<br/>
+                        <strong>Sobrenome:</strong> {this.props.sobrenome}<br/>
+                        <strong>Idade:</strong> {this.props.idade}<p/>
+
+                        <>
+                        <strong>Nome:</strong> {this.props.nome}<br/>
+                        <strong>Sobrenome:</strong> {this.props.sobrenome}<br/>
+                        <strong>Idade:</strong> {this.props.idade}<br/>
+                        </>
+
+                        <p key={this.props.nome}><strong>Nome:</strong> {this.props.nome}</p>
+                        <p key={this.props.sobrenome}><strong>Sobrenome:</strong> {this.props.sobrenome}</p>
+                        <p key={this.props.idade}><strong>Idade:</strong> {this.props.idade}</p>
+
+                    </React.Fragment>
+                );
+            }
+        }
+
+        class Pessoa extends React.Component{
+            render(){
+                return(
+                    <div>
+                     <TextoExibicao {...this.props} />
+                    </div>
+                );
+            }
+        }
+
+         const local = document.getElementById("exemplo")
+         
+         ReactDOM.render(
+            <div>
+                <Pessoa nome="Fernanda" sobrenome="Moreira" idade="45" />
+            </div>, local
+            )  
+    </script>
+</body>
+</html>
