@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<title></title>
+</head>
+<body>
+	<h1>React Lifecycle</h1>
+	<p>Cada componente no React tem um ciclo de vida que pode ser monitorado e manipulado durante suas três fases principais:  Mounting, Updating, and Unmounting (Montagem, Atualização e Desmontagem).</p>
+    <b>Mounting</b> - Fase em que os elementos são colocados no DOM. Tem quatro métodos integrados que são chamados, nesta ordem, ao montar um componente:
+    <ul>
+    <li>constructor() - É chamado antes de qualquer outra coisa, quando o componente é iniciado, e é o lugar natural para configurar o estado inicial e outros valores iniciais. Deve começar chamando o super(props), o que iniciará o método construtor do pai.</li>
+    <li>getDerivedStateFromProps() - É chamado logo antes de renderizar o(s) elemento(s) no DOM. É o lugar natural para definir o objeto de estado com base nas props iniciais. Recebe o estado como um argumento e retorna um objeto com alterações no estado.</li>
+    <li>render() - É obrigatório e é o método que gera o HTML para o DOM.</li>
+    <li>componentDidMount() - É chamado depois que o componente é renderizado. É onde são executadas instruções que requerem que o componente já esteja colocado no DOM.</li>
+    </ul>
+
+    <b>Updating</b> - Quando um componente é atualizado. Um componente é atualizado sempre que há uma alteração no estado ou nas props do componente.O React tem cinco métodos integrados que são chamados, nesta ordem, quando um componente é atualizado:
+    <ul>
+        <li>getDerivedStateFromProps() - Este é o primeiro método chamado quando um componente é atualizado.</li>
+        <li>shouldComponentUpdate() -É retornardo um valor booleano que especifica se o React deve continuar com a renderização ou não. O valor padrão é verdadeiro.</li>
+        <li>render() - É chamado quando um componente é atualizado, ele deve renderizar novamente o HTML para o DOM, com as novas alterações.</li>
+        <li>getSnapshotBeforeUpdate() - Acessa os valores de props e state antes da atualização, ou seja, mesmo após a atualização, é possível verificar quais eram os valores antes da atualização. Se o método getSnapshotBeforeUpdate() estiver presente, também deve-se incluir o método componentDidUpdate().</li>
+        <li>componentDidUpdate() - É chamado depois que o componente é atualizado no DOM.</li>
+    </ul>
+
+    <b>Unmounting</b> - A próxima fase no ciclo de vida é quando um componente é removido do DOM. O React tem apenas um método interno que é chamado quando um componente é desmontado:
+    <ul>
+        <li>componentWillUnmount() - É chamado quando o componente está prestes a ser removido do DOM.</li>
+    </ul>
+		<div id="exemplo"></div>
+        <div id="exemplo2"></div>
+        <div id="exemplo3"></div>
+
+		<div>
+	
+<pre>
+    &lt;script type="text/babel">
+            class Pessoa extends React.Component{
+
+            constructor(props){
+                super(props)
+                this.state = {
+                    nome: "Fernanda",
+                    sobrenome: "Moreira",
+                    ano: 1977,
+                    show: true
+                }
+            }
+
+            static getDerivedStateFromProps(props, state) {
+                return {nome: props.novoNome };
+             }
+
+            componentDidMount() {
+                setTimeout(() => {
+                this.setState({sobrenome: "Nobre"})
+                }, 1000)
+            }
+
+            getSnapshotBeforeUpdate(prevProps, prevState) {
+                document.getElementById("exemplo2").innerHTML =
+                "&lt;p>Antes da atualização, o sobrenome era " + prevState.sobrenome;
+
+            }
+        
+            componentDidUpdate() {
+                document.getElementById("exemplo3").innerHTML =
+                "Após a atualização, o sobrenome é " + this.state.sobrenome;
+            }
+
+            shouldComponentUpdate() {
+                return true;
+            }
+
+            render(){
+                return(
+                    &lt;>
+                     &lt;p>Nome: {this.state.nome}&lt;/p>
+                     &lt;p>Sobrenome: {this.state.sobrenome}&lt;/p>
+                     &lt;p>Ano: {this.state.ano}&lt;/p>
+                    &lt;/>
+
+                );
+            }
+        }
+
+         const local = document.getElementById("exemplo")
+         
+         ReactDOM.render(
+            &lt;div>
+                &lt;Pessoa novoNome="Nanda"/>
+            &lt;/div>, local)     
+    &lt;/script>
+</pre>
+		</div>
+	<p class="referencia">Referência: <a href="https://www.w3schools.com/react/react_lifecycle.asp" target="_blank">w3schools</a></p>
+	<script type="text/babel">    
+        class Pessoa extends React.Component{
+
+            constructor(props){
+                super(props)
+                this.state = {
+                    nome: "Fernanda",
+                    sobrenome: "Moreira",
+                    ano: 1977,
+                    show: true
+                }
+            }
+
+            static getDerivedStateFromProps(props, state) {
+                return {nome: props.novoNome };
+             }
+
+            componentDidMount() {
+                setTimeout(() => {
+                this.setState({sobrenome: "Nobre"})
+                }, 1000)
+            }
+
+            getSnapshotBeforeUpdate(prevProps, prevState) {
+                document.getElementById("exemplo2").innerHTML =
+                "<p>Antes da atualização, o sobrenome era " + prevState.sobrenome;
+
+            }
+        
+            componentDidUpdate() {
+                document.getElementById("exemplo3").innerHTML =
+                "Após a atualização, o sobrenome é " + this.state.sobrenome;
+            }
+
+            shouldComponentUpdate() {
+                return true;
+            }
+
+            render(){
+                return(
+                    <>
+                     <p>Nome: {this.state.nome}</p>
+                     <p>Sobrenome: {this.state.sobrenome}</p>
+                     <p>Ano: {this.state.ano}</p>
+                    </>
+
+                );
+            }
+        }
+
+         const local = document.getElementById("exemplo")
+         
+         ReactDOM.render(
+            <div>
+                <Pessoa novoNome="Nanda"/>
+            </div>, local)  
+    </script>
+</body>
+</html>
