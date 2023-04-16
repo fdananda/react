@@ -8,3 +8,4 @@ Códigos React
 <li><b>React Component Composability</b> - (13/04/2023) O React permite nos referir a componentes dentro de outros componentes.<br>https://github.com/fdananda/react/tree/main/react_component_composability</li>
 <li><b>React Spread Operator</b> - (13/04/2023) Permite copiar rapidamente todo ou parte de um array ou objeto para outro array ou objeto.<br>https://github.com/fdananda/react/tree/main/react_spread_operator</li>
 <li><b>React Fragment</b> - (14/04/2023) Permite agrupar elementos sem um nó.<br>https://github.com/fdananda/react/tree/main/react_fragment</li>
+<li><b>React State</b> - (15/04/2023) É onde os valores de propriedade que pertencem ao componente são armazendados.<br>https://github.com/fdananda/react/tree/main/react_state</li>
