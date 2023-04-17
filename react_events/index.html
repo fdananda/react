@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<title></title>
+</head>
+<body>
+	<h1>React Events</h1>
+	<p>o React pode executar ações com base nos eventos do usuário. Os eventos React são escritos na sintaxe camelCase: onClick em vez de onclick. Os manipuladores de eventos são escritos entre chaves: onClick={shoot} em vez de onClick="shoot()". Para passar um argumento para um manipulador de eventos, usa-se uma função de seta.
+
+		<div id="exemplo"></div>
+        
+		<div>
+	
+<pre>
+    &lt;script type="text/babel">
+        class Pessoa extends React.Component{
+
+            constructor(props){
+                super(props)
+                this.state = {
+                    nome: "Fernanda",
+                    sobrenome: "Moreira"
+                }
+            }
+
+            mudarPessoa = () => {
+            this.setState({nome: "Helena"})
+         }
+
+            render(){
+                return(
+                    &lt;>
+                     &lt;p>Nome: {this.state.nome}&lt;/p>
+                     &lt;p>Sobrenome: {this.state.sobrenome}&lt;/p>
+                    &lt;button onClick={this.mudarPessoa}>Mudar Pessoa&lt;/button>
+                    &lt;/>
+
+                );
+            }
+        }        
+
+         const local = document.getElementById("exemplo")
+         
+         ReactDOM.render(
+            &lt;div>
+                &lt;Pessoa />
+            &lt;/div>, local)   
+    &lt;/script>
+</pre>
+		</div>
+	<p class="referencia">Referência: <a href="https://www.w3schools.com/react/react_events.asp" target="_blank">w3schools</a></p>
+	<script type="text/babel">    
+        class Pessoa extends React.Component{
+
+            constructor(props){
+                super(props)
+                this.state = {
+                    nome: "Fernanda",
+                    sobrenome: "Moreira"
+                }
+            }
+
+            mudarPessoa = () => {
+            this.setState({nome: "Helena"})
+         }
+
+            render(){
+                return(
+                    <>
+                     <p>Nome: {this.state.nome}</p>
+                     <p>Sobrenome: {this.state.sobrenome}</p>
+                    <button onClick={this.mudarPessoa}>Mudar Pessoa</button>
+                    </>
+
+                );
+            }
+        }        
+
+         const local = document.getElementById("exemplo")
+         
+         ReactDOM.render(
+            <div>
+                <Pessoa />
+            </div>, local)             
+    </script>
+</body>
+</html>
