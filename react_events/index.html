@@ -26,10 +26,12 @@
                     nome: "Fernanda",
                     sobrenome: "Moreira"
                 }
+
+                this.mudarPessoa = this.mudarPessoa.bind(this)
             }
 
-            mudarPessoa = () => {
-            this.setState({nome: "Helena"})
+            mudarPessoa = (novoNome, novoSobrenome) => {
+            this.setState({nome: novoNome, sobrenome: novoSobrenome})
          }
 
             render(){
@@ -37,12 +39,12 @@
                     &lt;>
                      &lt;p>Nome: {this.state.nome}&lt;/p>
                      &lt;p>Sobrenome: {this.state.sobrenome}&lt;/p>
-                    &lt;button onClick={this.mudarPessoa}>Mudar Pessoa&lt;/button>
+                    &lt;button onClick={() => this.mudarPessoa("Helena", "Rodrigues")}>Mudar Pessoa&lt;/button>
                     &lt;/>
 
                 );
             }
-        }        
+        }             
 
          const local = document.getElementById("exemplo")
          
@@ -63,10 +65,12 @@
                     nome: "Fernanda",
                     sobrenome: "Moreira"
                 }
+
+                this.mudarPessoa = this.mudarPessoa.bind(this)
             }
 
-            mudarPessoa = () => {
-            this.setState({nome: "Helena"})
+            mudarPessoa = (novoNome, novoSobrenome) => {
+            this.setState({nome: novoNome, sobrenome: novoSobrenome})
          }
 
             render(){
@@ -74,7 +78,7 @@
                     <>
                      <p>Nome: {this.state.nome}</p>
                      <p>Sobrenome: {this.state.sobrenome}</p>
-                    <button onClick={this.mudarPessoa}>Mudar Pessoa</button>
+                    <button onClick={() => this.mudarPessoa("Helena", "Rodrigues")}>Mudar Pessoa</button>
                     </>
 
                 );
