@@ -12,3 +12,4 @@ Códigos React
 <li><b>React Lifecycle</b> - (15/04/2023) Cada componente no React tem um ciclo de vida que pode ser monitorado e manipulado.<br>https://github.com/fdananda/react/tree/main/react_lifecycle</li>
 <li><b>React Events</b> - (16/04/2023) O React pode executar ações com base nos eventos do usuário.<br>https://github.com/fdananda/react/tree/main/react_events</li>
 <li><b>Ambiente React</b> - (18/04/2023) Configuração do ambiente React de produção<br>https://github.com/fdananda/react/tree/main/react_ambiente/src</li>
+<li><b>HTTP Request</b> - (19/04/2023)<br>https://github.com/fdananda/react/tree/main/http_request</li>
