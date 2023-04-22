@@ -14,3 +14,4 @@ Códigos React
 <li><b>Ambiente React</b> - (18/04/2023) Configuração do ambiente React de produção<br>https://github.com/fdananda/react/tree/main/react_ambiente/src</li>
 <li><b>HTTP Request</b> - (19/04/2023)<br>https://github.com/fdananda/react/tree/main/http_request</li>
 <li><b>Flip Move</b> - (20/04/2023) Criado para animar uma lista de itens quando a ordem da lista muda<br>https://github.com/fdananda/react/tree/main/flip_move</li>
+<li><b>React Router</b> - (22/04/2023) Permite rotear do lado cliente<br>https://github.com/fdananda/react/tree/main/react_router</li>
