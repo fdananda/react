@@ -10,7 +10,20 @@
 </head>
 <body>
 	<h1>React Events</h1>
-	<p>O React pode executar ações com base nos eventos do usuário. Os eventos React são escritos na sintaxe camelCase: onClick em vez de onclick. Os manipuladores de eventos são escritos entre chaves: onClick={shoot} em vez de onClick="shoot()". Para passar um argumento para um manipulador de eventos, usa-se uma função de seta.
+	<p>O React pode executar ações com base nos eventos do usuário. Os eventos React são escritos na sintaxe camelCase: onClick em vez de onclick. Os manipuladores de eventos são escritos entre chaves: onClick={shoot} em vez de onClick="shoot()". Para passar um argumento para um manipulador de eventos, usa-se uma função de seta. São três abordagens diferentes:
+        <ul>
+            <li><strong>No código HTML</strong> - Adicionado ao nó precedido da palavra ‘on’ e chamando a função COM parênteses - Ex.: &lt;button onclick=“funcao()”>botão&lt;/button></li>
+            <li><strong>No DOM Tradicional</strong> - Adicionado ao nó precedido da palavra ‘on’ ex: onclick e chamando a função SEM parênteses (elemento.evento = nomeDaFunção) - Ex.: document.getElementById("botao").onclick = funcao </li>
+            <li><strong>Ouvintes de eventos DOM</strong> - Adiciona um ouvinte de eventos ao nó de elemento DOM (elemento.addEventListener(‘evento’, nomeDaFunção, booleano)), sem o "on" e chamando a função SEM parênteses - Ex.: document.getElementById("botao").addEventListener('click', funcao, false). ou:<p>
+                <pre>
+                if(document.getElementById("botao").addEventListener('click', funcao, false)){
+                    document.getElementById("botao").addEventListener('click', funcao, false)
+                }else{
+                    document.getElementById("botao").attachEvent('click', funcao, false)
+                }
+                </pre>
+            </li>
+        </ul>
 
 		<div id="exemplo"></div>
         
